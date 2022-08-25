@@ -54,7 +54,7 @@ public class Main {
     public static int calculateAllSalariesPerMonth() {
         int sum = 0;
         for (Employee employee : employees) {
-            sum+=employee.getSalary();
+            sum += employee.getSalary();
         }
         return sum;
     }
@@ -93,7 +93,7 @@ public class Main {
         }
     }
 
-    public static void increaseSalary (int percent) {
+    public static void increaseSalary(int percent) {
         for (Employee employee : employees) {
             employee.setSalary(employee.getSalary() + percent / 10);
         }
