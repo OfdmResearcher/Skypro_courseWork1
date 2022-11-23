@@ -2,101 +2,34 @@ package com.skypro;
 
 public class Main {
 
-    private static final Employee[] employees = new Employee[10];
-
     public static void main(String[] args) {
-        Employee employee1 = new Employee("John Johnson", 2, 20000);
-        Employee employee2 = new Employee("Frank Lampard", 1, 10000);
-        Employee employee3 = new Employee("David Beckham", 5, 30000);
-        Employee employee4 = new Employee("Ben Lawson", 2, 20000);
-        Employee employee5 = new Employee("Nick Randsom", 3, 30000);
-        Employee employee6 = new Employee("Bob Willow", 4, 10000);
-        Employee employee7 = new Employee("Mickael Oliver", 5, 5000);
-        Employee employee8 = new Employee("David Kasinsky", 2, 40000);
-        Employee employee9 = new Employee("Billy Norton", 4, 20000);
-        Employee employee10 = new Employee("Steven Spielberg", 1, 45000);
-        employees[0] = employee1;
-        employees[1] = employee2;
-        employees[2] = employee3;
-        employees[3] = employee4;
-        employees[4] = employee5;
-        employees[5] = employee6;
-        employees[6] = employee7;
-        employees[7] = employee8;
-        employees[8] = employee9;
-        employees[9] = employee10;
 
-        printAllEmployees();
+        Employee emp1 = new Employee(1,"Dawson",1000,"Frank","Bob",1);
+        Employee emp2 = new Employee(2,"James",600,"David","Rob",1);
+        Employee emp3 = new Employee(3,"Faint",1500,"Henry","Michael",1);
+        Employee emp4 = new Employee(4,"Straiter",1200,"Steven","Matt",1);
+        Employee emp5 = new Employee(8,"Stowns",900,"Wesley","Robert",2);
+        Employee emp6 = new Employee(7,"Grafe",700,"Nicky","Ron",2);
+        Employee emp7 = new Employee(6,"Vallison",1000,"John","Ricky",2);
+        Employee emp8 = new Employee(5,"Maistreem",1800,"Jack","Trevor",2);
 
-        System.out.println("The total salary will be: " + calculateAllSalariesPerMonth());
-        System.out.println("findEmployeeWithMinSalary() = " + findEmployeeWithMinSalary());
-        System.out.println("findEmployeeWithMaxSalary() = " + findEmployeeWithMaxSalary());
-        System.out.println("findAverageSalary() = " + findAverageSalary());
-        printFullNamesOfEmployees();
+        EmployeeBook employeeBook = new EmployeeBook();
 
-        increaseSalary(10);
+        employeeBook.printEmployees();
 
-        printAllEmployees();
+        employeeBook.addEmployee(emp1);
+        employeeBook.addEmployee(emp2);
+        employeeBook.addEmployee(emp3);
+        employeeBook.addEmployee(emp4);
+        employeeBook.addEmployee(emp5);
+        employeeBook.addEmployee(emp6);
+        employeeBook.addEmployee(emp7);
+        employeeBook.addEmployee(emp8);
 
-        int totalAmountOfHours = 640;
-        int hoursPerOneEmployee = 8;
-        int numberOfEmployees = totalAmountOfHours / hoursPerOneEmployee;
-        System.out.println(numberOfEmployees);
+       // employeeBook.printEmployees();
 
-    }
+        System.out.println("employeeBook.totalSalariesForDepartment(1) = " + employeeBook.totalSalariesForDepartment(1));
 
-    public static void printAllEmployees() {
-        for (Employee employee : employees) {
-            System.out.println(employee);
-        }
-    }
-
-    public static int calculateAllSalariesPerMonth() {
-        int sum = 0;
-        for (Employee employee : employees) {
-            sum += employee.getSalary();
-        }
-        return sum;
-    }
-
-    public static Employee findEmployeeWithMinSalary() {
-        Employee employeeWithMinSalary = employees[0];
-        int minSalary = employees[0].getSalary();
-        for (Employee employee : employees) {
-            if (employee.getSalary() < minSalary) {
-                minSalary = employee.getSalary();
-                employeeWithMinSalary = employee;
-            }
-        }
-        return employeeWithMinSalary;
-    }
-
-    public static Employee findEmployeeWithMaxSalary() {
-        Employee employeeWithMaxSalary = employees[0];
-        int maxSalary = employees[0].getSalary();
-        for (Employee employee : employees) {
-            if (employee.getSalary() > maxSalary) {
-                maxSalary = employee.getSalary();
-                employeeWithMaxSalary = employee;
-            }
-        }
-        return employeeWithMaxSalary;
-    }
-
-    public static int findAverageSalary() {
-        return calculateAllSalariesPerMonth() / employees.length;
-    }
-
-    public static void printFullNamesOfEmployees() {
-        for (Employee employee : employees) {
-            System.out.println(employee.getFullName());
-        }
-    }
-
-    public static void increaseSalary(int percent) {
-        for (Employee employee : employees) {
-            employee.setSalary(employee.getSalary() + percent / 10);
-        }
     }
 }
 
